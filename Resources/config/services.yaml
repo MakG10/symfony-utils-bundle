@@ -1,0 +1,19 @@
+services:
+    # Event Subscribers
+    MakG\SymfonyUtilsBundle\EventListener\RequireCsrfToken:
+        arguments:
+            - '@annotations.reader'
+            - '@security.csrf.token_manager'
+        tags:
+            - { name: kernel.event_subscriber }
+
+    # Twig Extensions
+    MakG\SymfonyUtilsBundle\Twig\ColorsExtension:
+        tags:
+            - { name: twig.extension }
+
+    MakG\SymfonyUtilsBundle\Twig\RoutingExtension:
+        arguments:
+            - '@router'
+        tags:
+            - { name: twig.extension }

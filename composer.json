@@ -1,0 +1,35 @@
+{
+  "name": "makg/symfony-utils-bundle",
+  "description": "Useful twig extensions and other utils for Symfony 4+ apps.",
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "MakG",
+      "email": "makg@makg.eu"
+    }
+  ],
+  "require": {
+    "php": ">=7.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "MakG\\SymfonyUtilsBundle\\": ""
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.0",
+    "doctrine/annotations": "^1.0",
+    "symfony/dependency-injection": "^4.2",
+    "symfony/config": "^4.2",
+    "symfony/form": "^4.2",
+    "symfony/routing": "^4.2",
+    "symfony/security": "^4.2",
+    "symfony/templating": "^4.2",
+    "symfony/twig-bundle": "^4.2"
+  },
+  "suggest": {
+    "symfony/routing": "^4.2"
+  }
+}
