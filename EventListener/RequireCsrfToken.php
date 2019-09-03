@@ -35,7 +35,12 @@ class RequireCsrfToken implements EventSubscriberInterface
 
     public function onKernelController(FilterControllerEvent $event): void
     {
-        list($controller, $action) = $event->getController();
+        $controller = $event->getController();
+        $action = '__invoke';
+
+        if (is_array($controller)) {
+            [$controller, $action] = $event->getController();
+        }
 
         $method = new \ReflectionMethod($controller, $action);
         $annotation = $this->reader->getMethodAnnotation($method, CsrfTokenRequired::class);
