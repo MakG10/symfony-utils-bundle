@@ -1,4 +1,13 @@
 services:
+    # Query Filter
+    MakG\SymfonyUtilsBundle\Doctrine\QueryFilter\Filter\IdFilter:
+        tags:
+            - { name: makg.query_filter }
+
+    MakG\SymfonyUtilsBundle\Doctrine\QueryFilter\QueryFilter:
+        arguments:
+            - !tagged makg.query_filter
+
     # Event Subscribers
     MakG\SymfonyUtilsBundle\EventListener\RequireCsrfToken:
         arguments:
