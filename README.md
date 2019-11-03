@@ -1,5 +1,7 @@
 # Symfony Utils Bundle
 
+[![Build Status](https://travis-ci.org/MakG10/symfony-utils-bundle.svg?branch=master)](https://travis-ci.org/MakG10/symfony-utils-bundle)
+
 Bundle for Symfony 4.x with various useful stuff. It includes:
 - `QueryFilter` for Doctrine ORM to support custom search string queries like `symfony bundle site:github.com in-title:API`
 - `@CsrfTokenRequired` annotation to force presence of a valid CSRF token in HTTP header when dispatching controller action
