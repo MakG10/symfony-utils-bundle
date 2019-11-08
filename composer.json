@@ -29,11 +29,13 @@
     "symfony/security": "^4.2",
     "symfony/templating": "^4.2",
     "symfony/twig-bundle": "^4.2",
-    "symfony/phpunit-bridge": "^4.3"
+    "symfony/phpunit-bridge": "^4.3",
+    "symfony/validator": "^4.2"
   },
   "suggest": {
     "doctrine/orm": "^2.2",
     "symfony/console": "^4.2",
-    "symfony/routing": "^4.2"
+    "symfony/routing": "^4.2",
+    "symfony/validator": "^4.2"
   }
 }

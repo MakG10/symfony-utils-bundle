@@ -7,6 +7,7 @@ Bundle for Symfony 4.x with various useful stuff. It includes:
 - `@CsrfTokenRequired` annotation to force presence of a valid CSRF token in HTTP header when dispatching controller action
 - Twig Functions: `path_js`, `light_colors`
 - Twig Filters: `color`
+- Validators: `UniqueEntityField`
 
 Author: Maciej Gierej - http://maciej.gierej.pl
 
@@ -98,4 +99,19 @@ This function renders path from Router without resolved parameters, even if they
     let id = 123;
     let voteUrl = '{{ path_js('products_vote') }}'.replace('{id}', id);
 </script>
+```
+
+
+## Validators
+
+### UniqueEntityField
+
+It checks value uniqueness against the specified field in Doctrine entity. Usage:
+
+```php
+<?php
+$email = 'test@example.org';
+$constraint = new UniqueEntityField(['entity' => User::class, 'field' => 'email']);
+
+$validator->validate($email, [$constraint]);
 ```
