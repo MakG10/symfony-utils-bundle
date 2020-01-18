@@ -8,6 +8,7 @@ Bundle for Symfony 4.x with various useful stuff. It includes:
 - Twig Functions: `path_js`, `light_colors`
 - Twig Filters: `color`
 - Validators: `UniqueEntityField`
+- Doctrine Types: `\Money\Money` (embeddable), `money_currency`
 
 Author: Maciej Gierej - http://maciej.gierej.pl
 
@@ -115,3 +116,44 @@ $constraint = new UniqueEntityField(['entity' => User::class, 'field' => 'email'
 
 $validator->validate($email, [$constraint]);
 ```
+
+
+## Doctrine Types
+
+### Money
+
+Embeddable type using `\Money\Money` class from `moneyphp/money` package. In order to use it, you need to setup mappings in your Doctrine config (typically in `/config/packages/doctrine.yaml`):
+
+```yaml
+doctrine:
+    # ...
+    orm:
+        mappings:
+            Money:
+                type: yml
+                dir: '%kernel.project_dir%/vendor/makg/symfony-utils-bundle/Resources/config/doctrine/Money'
+                prefix: Money
+                is_bundle: false
+```
+
+```php
+<?php
+
+use Money\Money;
+
+class Entity
+{
+    /**
+     * @var Money
+     *
+     * @ORM\Embedded(class="\Money\Money")
+     */
+    private $price;
+}
+```
+
+It results in two columns: `price_amount`, `price_currency`.
+
+### Currency (money_currency)
+
+This type is registered automatically. It stores currency code and transforms it into `\Money\Currency` object.

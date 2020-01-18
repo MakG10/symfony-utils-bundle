@@ -1,0 +1,7 @@
+Money\Money:
+  type: embeddable
+  fields:
+    amount:
+      type: integer
+    currency:
+      type: money_currency
