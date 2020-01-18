@@ -9,14 +9,14 @@ use Twig\TwigFunction;
 
 class ColorsExtension extends AbstractExtension
 {
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new TwigFunction('light_colors', [$this, 'getLightColors']),
         ];
     }
 
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
             new TwigFilter('color', [$this, 'getRandomConstantColor']),

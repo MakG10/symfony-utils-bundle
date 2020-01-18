@@ -23,7 +23,7 @@ class UniqueEntityFieldValidator extends ConstraintValidator
     /**
      * {@inheritDoc}
      */
-    public function validate($value, Constraint $constraint)
+    public function validate($value, Constraint $constraint): void
     {
         if (!$constraint instanceof UniqueEntityField) {
             throw new UnexpectedTypeException($constraint, __NAMESPACE__.'\UniqueEntityField');

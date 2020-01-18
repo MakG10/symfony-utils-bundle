@@ -10,6 +10,7 @@ use Doctrine\ORM\QueryBuilder;
  */
 trait FilterTrait
 {
+    /** @var int */
     protected static $uniqueAliasId = 0;
 
     /**

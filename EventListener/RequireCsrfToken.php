@@ -26,7 +26,7 @@ class RequireCsrfToken implements EventSubscriberInterface
         $this->csrfTokenManager = $csrfTokenManager;
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             KernelEvents::CONTROLLER => 'onKernelController',

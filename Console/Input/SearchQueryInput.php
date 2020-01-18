@@ -35,12 +35,17 @@ class SearchQueryInput extends StringInput
     /**
      * Returns search phrases from input string.
      * Example: for string "symfony bundle site:github.com in-title:symfony rest api" it will return array [symfony, bundle, rest, api]
+     *
+     * @return array<string>
      */
     public static function getPhrasesFromInput(string $inputString): array
     {
         $input = new self($inputString);
 
-        return $input->getArgument('phrases');
+        /** @var array<string> $phrases */
+        $phrases = $input->getArgument('phrases');
+
+        return $phrases;
     }
 
     /**
@@ -53,6 +58,10 @@ class SearchQueryInput extends StringInput
         return preg_replace(self::SEARCH_OPTION_REGEX, '--\1=', $searchQuery);
     }
 
+    /**
+     * @param string $searchQuery
+     * @return array<InputOption>
+     */
     private function extractInputOptionsFromSearchQuery(string $searchQuery): array
     {
         preg_match_all(self::SEARCH_OPTION_REGEX, $searchQuery, $matches);

@@ -12,7 +12,12 @@ use Doctrine\Common\Annotations\Annotation;
  */
 class CsrfTokenRequired extends Annotation
 {
+    /** @var string */
     public $id;
+
+    /** @var string */
     public $header = 'X-CSRF-Token';
+
+    /** @var string */
     public $param = 'token';
 }

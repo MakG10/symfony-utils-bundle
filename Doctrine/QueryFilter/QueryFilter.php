@@ -13,7 +13,10 @@ class QueryFilter
     /** @var FilterInterface[] */
     private $queryFilters;
 
-    public function __construct(iterable $queryFilters)
+    /**
+     * @param FilterInterface[] $queryFilters
+     */
+    public function __construct(array $queryFilters)
     {
         $this->queryFilters = $queryFilters;
     }
