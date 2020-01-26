@@ -7,8 +7,9 @@ Bundle for Symfony 4.x with various useful stuff. It includes:
 - `@CsrfTokenRequired` annotation to force presence of a valid CSRF token in HTTP header when dispatching controller action
 - Twig Functions: `path_js`, `light_colors`
 - Twig Filters: `color`
-- Validators: `UniqueEntityField`
+- Validators: `UniqueEntityField`, `PhoneNumber`
 - Doctrine Types: `\Money\Money` (embeddable), `money_currency`
+- Form Types: `MoneyPhpType`
 
 Author: Maciej Gierej - http://maciej.gierej.pl
 
@@ -157,3 +158,10 @@ It results in two columns: `price_amount`, `price_currency`.
 ### Currency (money_currency)
 
 This type is registered automatically. It stores currency code and transforms it into `\Money\Currency` object.
+
+
+## Form types
+
+### MoneyPhpType
+
+This form type consists of two fields: amount and currency.
